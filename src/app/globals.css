@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors — navy/blue magic palette from lunet.png */
+  --color-background: #080c18;
+  --color-surface: #0f1526;
+  --color-border-card: #1e2a4a;
+  --color-blue: #3366ee;
+  --color-blue-bright: #66aaff;
+  --color-gold: #c9a84c;
+  --color-silver: #c8d4ff;
+  --color-muted-text: #8894b8;
+  --color-foreground: #f0f4ff;
+
+  /* Fonts */
+  --font-cinzel: var(--font-cinzel-var);
+  --font-sans: var(--font-inter-var);
+}
+
+@layer utilities {
+  .text-hero-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #c8d4ff 45%, #8ab4ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background-color: #080c18;
+  color: #f0f4ff;
+  font-family: var(--font-inter-var), system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}

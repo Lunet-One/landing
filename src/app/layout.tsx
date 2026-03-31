@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel, Inter } from "next/font/google";
+import { Cinzel, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
 const cinzel = Cinzel({
@@ -9,9 +9,10 @@ const cinzel = Cinzel({
   display: "swap",
 });
 
-const inter = Inter({
+const playfair = Playfair_Display({
   subsets: ["latin", "cyrillic"],
-  variable: "--font-inter-var",
+  variable: "--font-cormorant-var",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -38,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="ru"
-      className={`${cinzel.variable} ${inter.variable} h-full`}
+      className={`${cinzel.variable} ${playfair.variable} h-full`}
     >
       <body className="min-h-full antialiased">{children}</body>
     </html>

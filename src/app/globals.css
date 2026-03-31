@@ -1,28 +1,57 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors — navy/blue magic palette from lunet.png */
+  /* Colors */
   --color-background: #080c18;
-  --color-surface: #0f1526;
+  --color-surface: #0b1020;
   --color-border-card: #1e2a4a;
   --color-blue: #3366ee;
   --color-blue-bright: #66aaff;
   --color-gold: #c9a84c;
-  --color-silver: #c8d4ff;
-  --color-muted-text: #8894b8;
-  --color-foreground: #f0f4ff;
+  --color-gold-warm: #d4a843;
+  --color-silver: #ddd8cc;
+  --color-muted-text: #7a8399;
+  --color-foreground: #ede8e0;
 
   /* Fonts */
   --font-cinzel: var(--font-cinzel-var);
-  --font-sans: var(--font-inter-var);
+  --font-serif: var(--font-cormorant-var);
+  --font-sans: var(--font-cormorant-var);
 }
 
 @layer utilities {
   .text-hero-gradient {
-    background: linear-gradient(135deg, #ffffff 0%, #c8d4ff 45%, #8ab4ff 100%);
+    background: linear-gradient(150deg, #f5f0e8 0%, #ddd8cc 40%, #9ab4f0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, #d4a843 0%, #f0cc70 50%, #c9a84c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gradient-card {
+    position: relative;
+    background: linear-gradient(135deg, rgba(201, 168, 76, 0.18), rgba(30, 42, 74, 0.6), rgba(51, 102, 238, 0.12));
+    padding: 1px;
+    border-radius: 0.75rem;
+  }
+
+  .grain-overlay::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.032;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 200px 200px;
+    z-index: 9999;
+    mix-blend-mode: overlay;
   }
 }
 
@@ -32,8 +61,10 @@ html {
 
 body {
   background-color: #080c18;
-  color: #f0f4ff;
-  font-family: var(--font-inter-var), system-ui, sans-serif;
+  color: #ede8e0;
+  font-family: var(--font-cormorant-var), Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 * {

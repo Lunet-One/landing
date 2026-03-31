@@ -30,12 +30,19 @@ export default function Features() {
     <section className="py-28 px-6">
       {/* Separator */}
       <div className="max-w-6xl mx-auto mb-16">
-        <div className="flex items-center gap-4">
-          <div className="flex-1 h-px bg-border-card" />
-          <span className="font-cinzel text-xs text-muted-text tracking-widest uppercase">
-            Возможности
-          </span>
-          <div className="flex-1 h-px bg-border-card" />
+        <div className="flex items-center gap-5">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent to-border-card" />
+          <div className="flex items-center gap-3">
+            <div className="w-1 h-1 rounded-full bg-gold/50" />
+            <span
+              className="text-muted-text tracking-[0.22em] uppercase"
+              style={{ fontFamily: "var(--font-cinzel-var)", fontSize: "0.85rem" }}
+            >
+              Возможности
+            </span>
+            <div className="w-1 h-1 rounded-full bg-gold/50" />
+          </div>
+          <div className="flex-1 h-px bg-gradient-to-l from-transparent to-border-card" />
         </div>
       </div>
 
@@ -53,17 +60,47 @@ export default function Features() {
               <motion.div
                 key={feature.title}
                 variants={fadeUp}
-                className="group p-6 rounded-xl border border-border-card bg-surface hover:border-blue/30 transition-colors duration-300"
+                className="group relative p-px rounded-2xl transition-all duration-500"
+                style={{
+                  background:
+                    "linear-gradient(145deg, rgba(201,168,76,0.35) 0%, rgba(40,55,100,0.5) 40%, rgba(51,102,238,0.2) 100%)",
+                  boxShadow: "0 0 0 0 transparent",
+                }}
               >
-                <div className="w-10 h-10 rounded-lg bg-blue/10 flex items-center justify-center mb-5 group-hover:bg-blue/20 transition-colors duration-300">
-                  <Icon className="w-5 h-5 text-blue-bright" />
+                {/* Card inner */}
+                <div
+                  className="relative rounded-2xl p-7 h-full transition-colors duration-500"
+                  style={{
+                    background:
+                      "linear-gradient(160deg, #121b30 0%, #0d1422 100%)",
+                  }}
+                >
+                  {/* Icon */}
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-6"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, rgba(51,102,238,0.2) 0%, rgba(201,168,76,0.08) 100%)",
+                      border: "1px solid rgba(102,170,255,0.2)",
+                      boxShadow: "0 0 16px rgba(51,102,238,0.12)",
+                    }}
+                  >
+                    <Icon className="w-5 h-5 text-blue-bright" />
+                  </div>
+
+                  <h3
+                    className="text-foreground mb-3"
+                    style={{ fontSize: "1.35rem", fontWeight: 700, lineHeight: 1.25, letterSpacing: "0.01em" }}
+                  >
+                    {feature.title}
+                  </h3>
+                  <p
+                    className="leading-relaxed"
+                    style={{ fontSize: "1rem", fontWeight: 300, color: "rgba(140,152,180,0.8)" }}
+                  >
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="font-cinzel text-base font-bold text-silver mb-2 tracking-wide">
-                  {feature.title}
-                </h3>
-                <p className="text-muted-text text-sm leading-relaxed">
-                  {feature.description}
-                </p>
               </motion.div>
             );
           })}
